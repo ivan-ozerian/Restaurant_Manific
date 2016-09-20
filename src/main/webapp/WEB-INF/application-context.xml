@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employeeDao" class="com.ozerian.app.model.dao.EmployeeDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="employeeService" class="com.ozerian.app.model.service.EmployeeService">
+        <property name="employeeDAO" ref="employeeDao"/>
+    </bean>
+
+    <bean id="dishDao" class="com.ozerian.app.model.dao.DishDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="dishService" class="com.ozerian.app.model.service.DishService">
+        <property name="dishDAO" ref="dishDao"/>
+    </bean>
+
+    <bean id="orderDao" class="com.ozerian.app.model.dao.OrderDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="dishService" ref="dishService"/>
+    </bean>
+
+    <bean id="orderService" class="com.ozerian.app.model.service.OrderService">
+        <property name="orderDAO" ref="orderDao"/>
+    </bean>
+
+    <bean id="menuDao" class="com.ozerian.app.model.dao.MenuDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="dishService" ref="dishService"/>
+    </bean>
+
+    <bean id="menuService" class="com.ozerian.app.model.service.MenuService">
+        <property name="dishService" ref="dishService"/>
+        <property name="menuDAO" ref="menuDao"/>
+    </bean>
+
+    <bean id="ingredientDao" class="com.ozerian.app.model.dao.IngredientDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="ingredientService" class="com.ozerian.app.model.service.IngredientService">
+        <property name="ingredientDAO" ref="ingredientDao"/>
+    </bean>
+
+    <bean id="preparedDishDao" class="com.ozerian.app.model.dao.PreparedDishDAO">
+        <property name="dishService" ref="dishService"/>
+        <property name="employeeService" ref="employeeService"/>
+        <property name="orderService" ref="orderService"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="preparedDishService" class="com.ozerian.app.model.service.PreparedDishService">
+        <property name="preparedDishDAO" ref="preparedDishDao"/>
+    </bean>
+
+</beans>
