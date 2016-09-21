@@ -48,7 +48,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form method="post" action="/employees/update">
+                        <form method="post" action="/employees/updateForm">
                             <input type="hidden" name="empId" value="<c:out value="${employee.id}"/>"/>
                             <input type="submit" value="Update"/>
                         </form>

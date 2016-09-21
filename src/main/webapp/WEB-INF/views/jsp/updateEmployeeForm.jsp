@@ -15,16 +15,16 @@
 
 <div id="mystyle" class="myform">
     <form name="add" action="/employees/updateSubmit" method="post">
-        <h1>Employee</h1>
+        <h1>${employee.name} ${employee.surname}</h1>
         <p>Update employee info</p>
-        <label>Phone number<span class="small">Enter the new phone number</span></label>
+        <label>Phone number<span class="small">Enter phone number</span></label>
         <input type="text" name="phone" value="<c:out value='${employee.phoneNumber}'/>"/>
         <label>Salary<span class="small">Update salary</span></label>
         <input type="text" name="salary" value="<c:out value='${employee.salary}'/>"/>
         <label>Position<span class="small">Update position</span></label>
         <select name="position">
             <c:forEach var="position" items="${positions}">
-                <option value="${position.name()}"><c:out value="${employee.position}"/></option>
+                <option value="${position.name()}">${position.name()}</option>
             </c:forEach>
         </select>
         <input type="hidden" name="employeeId" value="${employeeId}"/>
