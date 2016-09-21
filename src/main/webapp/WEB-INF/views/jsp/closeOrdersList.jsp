@@ -34,11 +34,11 @@
                 </td>
                 <td><c:out value="${order.waiter.name}"/>
                 </td>
-                <td><c:out value="${order.waiter.surname}"/>
+                <td><a href="/orders/filterBySurname?surname=${order.waiter.surname}"><c:out value="${order.waiter.surname}"/></a>
                 </td>
                 <td><fmt:formatDate type="both" dateStyle="short" timeStyle="medium" value="${order.orderTime}"/>
                 </td>
-                <td><c:out value="${order.tableNumber}"/>
+                <td><a href="/orders/filterByTable?table=${order.tableNumber}"><c:out value="${order.tableNumber}"/>
                 </td>
                 <td><c:if test="${order.status==false}">Close</c:if>
                 </td>

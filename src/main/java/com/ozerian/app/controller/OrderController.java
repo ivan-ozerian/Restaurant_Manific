@@ -116,6 +116,19 @@ public class OrderController {
         return "dishesFromOrder";
     }
 
+    @RequestMapping(value = "/filterBySurname", method = RequestMethod.GET)
+    public String filterBySurname(Model model, @RequestParam("surname") String surname) {
+        model.addAttribute("orders", orderService.findByWaiter(surname));
+        return "closeOrdersList";
+    }
+
+    @RequestMapping(value = "/filterByTable", method = RequestMethod.GET)
+    public String filterByTable(Model model, @RequestParam("table") String table) {
+        int tableNumber = Integer.valueOf(table);
+        model.addAttribute("orders", orderService.findByTable(tableNumber));
+        return "closeOrdersList";
+    }
+
     @ExceptionHandler(ConstraintViolationException.class)
     public String violationException () {
         LOGGER.error("Trying to delete of order with reference in other table");

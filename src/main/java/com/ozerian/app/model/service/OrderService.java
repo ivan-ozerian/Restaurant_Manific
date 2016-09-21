@@ -92,6 +92,28 @@ public class OrderService {
     }
 
     /**
+     * Find orders by waiter's surname.
+     *
+     * @param surname String waiter's surname.
+     * @return List of orders.
+     */
+    @Transactional
+    public List<Order> findByWaiter(String surname) {
+        return orderDAO.findByWaiterSurname(surname);
+    }
+
+    /**
+     * Find orders by waiter's table number.
+     *
+     * @param tableNumber String table number.
+     * @return List of orders.
+     */
+    @Transactional
+    public List<Order> findByTable(int tableNumber) {
+        return orderDAO.findByTableNumber(tableNumber);
+    }
+
+    /**
      * get OrderDao object.
      *
      * @return OrderDao orderDao object.
@@ -109,4 +131,6 @@ public class OrderService {
     public void setOrderDAO(OrderDAO orderDAO) {
         this.orderDAO = orderDAO;
     }
+
 }
+

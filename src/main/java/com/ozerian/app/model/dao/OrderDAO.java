@@ -6,6 +6,7 @@ import com.ozerian.app.model.service.DishService;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -129,6 +130,36 @@ public class OrderDAO implements EntityDAO<Order> {
         Dish dish = dishService.getDishById(dishId);
         order.getOrderDishes().add(dish);
         session.save(order);
+    }
+
+    /**
+     * Find orders by waiter's surname.
+     *
+     * @param surname String waiter's surname.
+     * @return List of orders.
+     */
+    @Transactional
+    public List<Order> findByWaiterSurname(String surname) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select o from Order o where o.waiter.surname =:waiterSurname";
+        Query query = session.createQuery(hql);
+        query.setParameter("waiterSurname", surname);
+        return query.list();
+    }
+
+    /**
+     * Find orders by waiter's table number.
+     *
+     * @param tableNumber String table number.
+     * @return List of orders.
+     */
+    @Transactional
+    public List<Order> findByTableNumber(int tableNumber) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select o from Order o where o.tableNumber =:tableNumber";
+        Query query = session.createQuery(hql);
+        query.setParameter("tableNumber", tableNumber);
+        return query.list();
     }
 
     /**
