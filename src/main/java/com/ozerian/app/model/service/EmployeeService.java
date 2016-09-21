@@ -97,6 +97,16 @@ public class EmployeeService {
     }
 
     /**
+     * Method for update of an employee.
+     *
+     * @param employee Employee employee for update.
+     */
+    @Transactional
+    public void updateEmployee(Employee employee) {
+        employeeDAO.update(employee);
+    }
+
+    /**
      * set EmployeeDao object.
      *
      * @param employeeDAO EmployeeDAO object.

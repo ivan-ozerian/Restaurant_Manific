@@ -108,6 +108,17 @@ public class EmployeeDAO implements EntityDAO<Employee> {
     }
 
     /**
+     * Update of an existing Employee.
+     *
+     * @param employee Employee for update.
+     */
+    @Transactional
+    public void update(Employee employee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(employee);
+    }
+
+    /**
      * Get SessionFactory object.
      *
      * @return SessionFactory sessionFactory object.

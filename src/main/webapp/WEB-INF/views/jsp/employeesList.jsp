@@ -48,6 +48,14 @@
                 </td>
                 <td style="border: none;">
                     <div>
+                        <form method="post" action="/employees/update">
+                            <input type="hidden" name="empId" value="<c:out value="${employee.id}"/>"/>
+                            <input type="submit" value="Update"/>
+                        </form>
+                    </div>
+                </td>
+                <td style="border: none;">
+                    <div>
                         <form method="post" action="/employees/delete">
                             <input type="hidden" name="empId" value="<c:out value="${employee.id}"/>"/>
                             <input type="submit" value="Delete"/>

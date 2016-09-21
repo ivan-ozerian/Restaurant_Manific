@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,29 @@ public class EmployeeController {
         return "redirect:/employees/showAll";
     }
 
+    @RequestMapping(value = "/updateForm", method = RequestMethod.POST)
+    public ModelAndView updateEmployeeForm(@RequestParam("empId") String id) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("updateEmployeeForm");
+        modelAndView.addObject("employeeId", id);
+        modelAndView.addObject("employee", employeeService.getEmployeeById(Integer.valueOf(id)));
+        modelAndView.addObject("positions", Position.values());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/updateSubmit", method = RequestMethod.POST)
+    public String updateSubmit(@RequestParam("employeeId") String id,
+                               @RequestParam("phone") String phone,
+                               @RequestParam("salary") String salary,
+                               @RequestParam("position") String position) {
+        Employee employee = employeeService.getEmployeeById(Integer.valueOf(id));
+        employee.setPhoneNumber(phone);
+        employee.setSalary(Integer.valueOf(salary));
+        employee.setPosition(Position.valueOf(position));
+        employeeService.updateEmployee(employee);
+        return "redirect:/employees/showAll";
+    }
+
     @RequestMapping(value = "/searchForm", method = RequestMethod.GET)
     public String searchEmployeeForm() {
         return "searchEmployeeByNameForm";
@@ -73,20 +97,20 @@ public class EmployeeController {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public String violationException () {
+    public String violationException() {
         LOGGER.error("Trying to delete of employee with reference in other table");
         return "deleteEmployeeException";
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(Exception.class)
-    public String badRequestException () {
+    public String badRequestException() {
         LOGGER.error("Error during new employee creation (invalid or empty form's parameters)");
         return "creationEmployeeException";
     }
 
     @ExceptionHandler(NotFoundException.class)
-    public String notFoundException () {
+    public String notFoundException() {
         LOGGER.error("Employee wasn't found!");
         return "employeeNotFoundException";
     }
