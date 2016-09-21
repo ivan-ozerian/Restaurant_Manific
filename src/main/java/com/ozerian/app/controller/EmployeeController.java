@@ -3,14 +3,17 @@ package com.ozerian.app.controller;
 import com.ozerian.app.model.entity.Employee;
 import com.ozerian.app.model.entity.Position;
 import com.ozerian.app.model.service.EmployeeService;
+import javassist.NotFoundException;
+import org.hibernate.exception.ConstraintViolationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +24,8 @@ import java.util.Map;
 public class EmployeeController {
 
     private EmployeeService employeeService;
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String employeesActions() {
@@ -52,8 +57,12 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)
-    public String findByName(@RequestParam("empName") String employeeName, Model model) {
-        model.addAttribute("foundEmployees", employeeService.searchEmployeeByName(employeeName));
+    public String findByName(@RequestParam("empName") String employeeName, Model model) throws NotFoundException {
+        List<Employee> employeesByName = employeeService.searchEmployeeByName(employeeName);
+        if (employeesByName.size() == 0) {
+            throw new NotFoundException("Entity is not found");
+        }
+        model.addAttribute("foundEmployees", employeesByName);
         return "employeeByName";
     }
 
@@ -61,6 +70,25 @@ public class EmployeeController {
     public String deleteEmployee(@RequestParam("empId") String id) {
         employeeService.deleteEmployee(Integer.valueOf(id));
         return "redirect:/employees/showAll";
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String violationException () {
+        LOGGER.error("Trying to delete of employee with reference in other table");
+        return "deleteEmployeeException";
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(Exception.class)
+    public String badRequestException () {
+        LOGGER.error("Error during new employee creation (invalid or empty form's parameters)");
+        return "creationEmployeeException";
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public String notFoundException () {
+        LOGGER.error("Employee wasn't found!");
+        return "employeeNotFoundException";
     }
 
     @Autowired

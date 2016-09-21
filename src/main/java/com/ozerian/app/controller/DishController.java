@@ -3,13 +3,15 @@ package com.ozerian.app.controller;
 import com.ozerian.app.model.entity.Dish;
 import com.ozerian.app.model.entity.DishCategory;
 import com.ozerian.app.model.service.DishService;
+import javassist.NotFoundException;
+import org.hibernate.exception.ConstraintViolationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -18,6 +20,9 @@ import java.util.Map;
 public class DishController {
 
     private DishService dishService;
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(DishController.class);
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String dishesActions() {
@@ -58,6 +63,25 @@ public class DishController {
     public String deleteDish(@RequestParam("dishId") String id) {
         dishService.deleteDish(Integer.valueOf(id));
         return "redirect:/dishes/showAll";
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String violationException () {
+        LOGGER.error("Trying to delete of dish with reference in other table");
+        return "deleteDishException";
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(Exception.class)
+    public String badRequestException () {
+        LOGGER.error("Error during new dish creation (invalid or empty form's parameters)");
+        return "creationDishException";
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public String notFoundException () {
+        LOGGER.error("Dish wasn't found!");
+        return "dishNotFoundException";
     }
 
     @Autowired

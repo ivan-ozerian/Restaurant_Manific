@@ -3,13 +3,13 @@ package com.ozerian.app.controller;
 import com.ozerian.app.model.entity.Menu;
 import com.ozerian.app.model.service.DishService;
 import com.ozerian.app.model.service.MenuService;
+import javassist.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,6 +18,9 @@ public class MenuController {
 
     private MenuService menuService;
     private DishService dishService;
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(MenuController.class);
+
 
     @RequestMapping(value = "/")
     public String menusActions() {
@@ -105,6 +108,13 @@ public class MenuController {
         model.addAttribute("menuName", menuName);
         return "redirect:/menus/showMenuDishes";
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public String notFoundException () {
+        LOGGER.error("Menu wasn't found!");
+        return "menuNotFoundException";
+    }
+
 
     @Autowired
     public void setMenuService(MenuService menuService) {

@@ -2,13 +2,14 @@ package com.ozerian.app.controller;
 
 import com.ozerian.app.model.entity.Ingredient;
 import com.ozerian.app.model.service.IngredientService;
+import javassist.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
@@ -18,6 +19,9 @@ import java.util.Map;
 public class IngredientController {
 
     private IngredientService ingredientService;
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(IngredientController.class);
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String ingredientsActions() {
@@ -82,6 +86,19 @@ public class IngredientController {
     public String expiringIngredients(Map<String, Object> model) {
         model.put("ingredients", ingredientService.getExpiringIngredients());
         return "ingredientsList";
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(Exception.class)
+    public String badRequestException () {
+        LOGGER.error("Error during new ingredient creation (invalid or empty form's parameters)");
+        return "creationIngredientException";
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public String notFoundException () {
+        LOGGER.error("Ingredient wasn't found!");
+        return "ingredientNotFoundException";
     }
 
     @Autowired

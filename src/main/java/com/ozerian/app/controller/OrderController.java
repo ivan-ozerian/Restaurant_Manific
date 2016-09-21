@@ -8,7 +8,12 @@ import com.ozerian.app.model.entity.Position;
 import com.ozerian.app.model.service.DishService;
 import com.ozerian.app.model.service.EmployeeService;
 import com.ozerian.app.model.service.OrderService;
+import javassist.NotFoundException;
+import org.hibernate.exception.ConstraintViolationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -27,6 +32,9 @@ public class OrderController {
     private OrderService orderService;
     private EmployeeService employeeService;
     private DishService dishService;
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(OrderController.class);
+
 
     @InitBinder
     private void initBinder(WebDataBinder binder) {
@@ -106,6 +114,19 @@ public class OrderController {
         model.addAttribute("orderDishes", orderDishes);
         model.addAttribute("orderId", orderId);
         return "dishesFromOrder";
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String violationException () {
+        LOGGER.error("Trying to delete of order with reference in other table");
+        return "deleteOrderException";
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(Exception.class)
+    public String badRequestException () {
+        LOGGER.error("Error during new order creation (invalid or empty form's parameters)");
+        return "creationOrderException";
     }
 
     @Autowired
