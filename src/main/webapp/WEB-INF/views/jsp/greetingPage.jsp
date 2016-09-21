@@ -14,6 +14,7 @@
         <p><b>The application is made by Ivan Ozerian</b><br/>
             <%=new Date()%> </br>  </br>
             <b>Please choose the section!</b><br/>
+            <a href="/j_spring_security_logout">Logout</a>
         <div>
 
         <form action="${pageContext.request.contextPath}/employees/">
