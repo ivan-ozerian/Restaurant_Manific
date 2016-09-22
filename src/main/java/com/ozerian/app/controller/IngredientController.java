@@ -52,8 +52,12 @@ public class IngredientController {
     }
 
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)
-    public String findByName(@RequestParam("ingredientName") String ingredientName, Model model) {
-        model.addAttribute("foundIngredient", ingredientService.searchIngredientByName(ingredientName));
+    public String findByName(@RequestParam("ingredientName") String ingredientName, Model model) throws NotFoundException {
+        Ingredient ingredient = ingredientService.searchIngredientByName(ingredientName);
+        if (ingredient == null) {
+            throw new NotFoundException("Ingredient wasn't found");
+        }
+        model.addAttribute("foundIngredient", ingredient);
         return "ingredientByName";
     }
 
