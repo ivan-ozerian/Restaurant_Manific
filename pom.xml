@@ -10,6 +10,7 @@
     <version>1.0</version>
 
     <build>
+        <finalName>manific</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
