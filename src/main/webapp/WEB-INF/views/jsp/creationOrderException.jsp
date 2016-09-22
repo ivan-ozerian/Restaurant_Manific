@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>Error!</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
                          margin: 20px auto auto 50px;
                          text-align: center;
                          background: none">
-    <form action="/orders/addForm/">
+    <form action="${pageContext.request.contextPath}/orders/addForm/">
         <input style="float: none" type="submit" value="Back"/>
     </form>
 </div>

@@ -6,13 +6,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>New Employee</title>
 </head>
 <body>
 <%@include file="employeesActions.jsp" %>
 <div id="mystyle" class="myform">
-    <form:form action="/employees/addSubmit" method="post" commandName="employee">
+    <form:form action="${pageContext.request.contextPath}/employees/addSubmit" method="post" commandName="employee">
         <h1>Employee</h1>
         <p>To add new Employee enter following information</p>
         <form:label path="name">Name<span class="small">Enter name</span></form:label>

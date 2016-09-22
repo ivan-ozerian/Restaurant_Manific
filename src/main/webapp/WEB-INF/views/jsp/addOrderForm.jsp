@@ -9,13 +9,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>New Employee</title>
 </head>
 <body>
 <%@include file="ordersActions.jsp" %>
 <div id="mystyle" class="myform">
-    <form:form action="/orders/addSubmit" method="post" commandName="order">
+    <form:form action="${pageContext.request.contextPath}/orders/addSubmit" method="post" commandName="order">
         <h1>Order</h1>
         <p>To add new Order enter following information</p>
         <div>

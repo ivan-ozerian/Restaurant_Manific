@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -46,7 +46,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form action="/orders/orderDishes" method="post">
+                        <form action="${pageContext.request.contextPath}/orders/orderDishes" method="post">
                             <input type="hidden" name="orderId" value="${order.id}"/>
                             <input type="submit" value="See order dishes"/>
                         </form>
@@ -54,7 +54,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form action="/orders/addDishForm" method="post">
+                        <form action="${pageContext.request.contextPath}/orders/addDishForm" method="post">
                             <input type="hidden" name="orderId" value="${order.id}"/>
                             <input type="submit" value="Add dish"/>
                         </form>
@@ -62,7 +62,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form action="/orders/close" method="post">
+                        <form action="${pageContext.request.contextPath}/orders/close" method="post">
                             <input type="hidden" name="orderId" value="${order.id}"/>
                             <input type="submit" value="Make close"/>
                         </form>
@@ -70,7 +70,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form action="/orders/delete" method="post">
+                        <form action="${pageContext.request.contextPath}/orders/delete" method="post">
                             <input type="hidden" name="orderId" value="${order.id}"/>
                             <input type="submit" value="Delete"/>
                         </form>

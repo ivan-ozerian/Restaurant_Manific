@@ -83,9 +83,8 @@ public class EmployeeControllerTest {
     public void testFindByName() throws Exception {
         mockMvc.perform(post("/employees/findByName").param("empName", "Employee_1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("employeeByName"))
-                .andExpect(forwardedUrl("employeeByName"))
-                .andExpect(model().attributeExists("foundEmployees"));
+                .andExpect(view().name("employeeNotFoundException"))
+                .andExpect(forwardedUrl("employeeNotFoundException"));
     }
 
     @Test

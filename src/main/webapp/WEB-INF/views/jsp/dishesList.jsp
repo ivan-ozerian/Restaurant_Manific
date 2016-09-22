@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form method="post" action="/dishes/delete">
+                        <form method="post" action="${pageContext.request.contextPath}/dishes/delete">
                             <input type="hidden" name="dishId" value="${dish.id}"/>
                             <input type="submit" value="Delete"/>
                         </form>

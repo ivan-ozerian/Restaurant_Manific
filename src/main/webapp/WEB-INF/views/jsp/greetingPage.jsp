@@ -14,25 +14,25 @@
         <p><b>The application is made by Ivan Ozerian</b><br/>
             <%=new Date()%> </br>  </br>
             <b>Please choose the section!</b><br/>
-            <a href="/j_spring_security_logout">Logout</a>
+            <a href="${pageContext.request.contextPath}/j_spring_security_logout">Logout</a>
         <div>
 
         <form action="${pageContext.request.contextPath}/employees/">
             <input type="submit" value="Employees"/>
         </form>
-        <form action="/dishes/">
+        <form action="${pageContext.request.contextPath}/dishes/">
             <input type="submit" value="Dishes"/>
         </form>
-        <form action="/menus/">
+        <form action="${pageContext.request.contextPath}/menus/">
             <input type="submit" value="Menu"/>
         </form>
-        <form action="/orders/">
+        <form action="${pageContext.request.contextPath}/orders/">
             <input type="submit" value="Orders"/>
         </form>
-        <form action="/kitchen/">
+        <form action="${pageContext.request.contextPath}/kitchen/">
             <input type="submit" value="Kitchen"/>
         </form>
-        <form action="/ingredients/">
+        <form action="${pageContext.request.contextPath}/ingredients/">
             <input type="submit" value="Storage"/>
         </form>
         </p>

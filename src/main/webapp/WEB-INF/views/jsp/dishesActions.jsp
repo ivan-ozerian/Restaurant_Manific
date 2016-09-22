@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -14,16 +14,16 @@
         <b>The application is made by Ivan Ozerian</b><br/>
         <%=new Date()%> </br>  </br>
         <p><div style="margin-left: 220px">
-            <form action="/dishes/addForm">
+            <form action="${pageContext.request.contextPath}/dishes/addForm">
                 <input type="submit" value="Add new dish"/>
             </form>
-            <form name="show" action="/dishes/showAll">
+            <form action="${pageContext.request.contextPath}/dishes/showAll">
                 <input type="submit" value="View all dishes"/>
             </form>
-            <form action="/dishes/searchForm">
+            <form action="${pageContext.request.contextPath}/dishes/searchForm">
                 <input type="submit" value="Search Dish by Name"/>
             </form>
-            <form action="/greetingPage">
+            <form action="${pageContext.request.contextPath}/greetingPage">
                 <input type="submit" value="Back to start page"/>
             </form>
         </div>

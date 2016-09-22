@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -34,11 +34,11 @@
                 </td>
                 <td><c:out value="${order.waiter.name}"/>
                 </td>
-                <td><a href="/orders/filterBySurname?surname=${order.waiter.surname}"><c:out value="${order.waiter.surname}"/></a>
+                <td><a href="${pageContext.request.contextPath}/orders/filterBySurname?surname=${order.waiter.surname}"><c:out value="${order.waiter.surname}"/></a>
                 </td>
                 <td><fmt:formatDate type="both" dateStyle="short" timeStyle="medium" value="${order.orderTime}"/>
                 </td>
-                <td><a href="/orders/filterByTable?table=${order.tableNumber}"><c:out value="${order.tableNumber}"/>
+                <td><a href="${pageContext.request.contextPath}/orders/filterByTable?table=${order.tableNumber}"><c:out value="${order.tableNumber}"/>
                 </td>
                 <td><c:if test="${order.status==false}">Close</c:if>
                 </td>

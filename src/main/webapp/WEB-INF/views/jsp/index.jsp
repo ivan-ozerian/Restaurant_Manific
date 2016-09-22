@@ -6,7 +6,7 @@
         <meta name="description" content="Restaurant Website and Gallery Template with jQuery and Google Maps" />
         <meta name="keywords" content="jquery, gallery, images, css3, html5, photography, website, template, google maps, sliding, background"/>
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-        <link rel="stylesheet" type="text/css" href="/resources/css/style_main.css" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style_main.css" />
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis+Light' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
@@ -16,7 +16,7 @@
 		<div id="map"></div>
 		<div id="bf_container" class="bf_container">
 			<div id="bf_background" class="bf_background">
-				<img src="/resources/images/background/default1.jpg" alt="image1" style="display:none;"/>
+				<img src="${pageContext.request.contextPath}/resources/images/background/default1.jpg" alt="image1" style="display:none;"/>
 				<div class="bf_overlay"></div>
 			</div>
 			<div id="bf_page_menu" class="bf_menu" >
@@ -52,27 +52,27 @@
                     <h2>Our staff</h2>
                     <p>Browse our employees.</p>
                     <div class="staff_img">
-                        <img src="/resources/images/staff/foreground/1.jpg" alt="thumb1">
+                        <img src="${pageContext.request.contextPath}/resources/images/staff/foreground/1.jpg" alt="thumb1">
                         <h3>Ivan Ozerian</h3>
                         <p>Restaurant's owner</p>
                     </div>
                     <div class="staff_img">
-                        <img src="/resources/images/staff/foreground/2.jpg" alt="thumb1">
+                        <img src="${pageContext.request.contextPath}/resources/images/staff/foreground/2.jpg" alt="thumb1">
                         <h3>Victor Barinov</h3>
                         <p>Chef</p>
                     </div>
                     <div class="staff_img">
-                        <img src="/resources/images/staff/foreground/3.jpg" alt="thumb1">
+                        <img src="${pageContext.request.contextPath}/resources/images/staff/foreground/3.jpg" alt="thumb1">
                         <h3>Peter Griffin</h3>
                         <p>Manager</p>
                     </div>
                     <div class="staff_img">
-                        <img src="/resources/images/staff/foreground/4.jpg" alt="thumb1">
+                        <img src="${pageContext.request.contextPath}/resources/images/staff/foreground/4.jpg" alt="thumb1">
                         <h3>Barbara Santa</h3>
                         <p>Waitress</p>
                     </div>
                      <div class="staff_img">
-                        <img src="/resources/images/staff/foreground/5.jpg" alt="thumb1">
+                        <img src="${pageContext.request.contextPath}/resources/images/staff/foreground/5.jpg" alt="thumb1">
                         <h3>Larry King</h3>
                         <p>Waiter</p>
                     </div>
@@ -83,7 +83,7 @@
                 <div class="bf_content_text_scheme">
                     <h2>Restaurant's scheme</h2>
                     <div class="scheme_img">
-                        <img src="/resources/images/scheme/scheme.jpg" alt="thumb1">
+                        <img src="${pageContext.request.contextPath}/resources/images/scheme/scheme.jpg" alt="thumb1">
                         <p>Tables scheme</p>
                     </div>
                 </div>
@@ -94,12 +94,12 @@
 					<h2>Our Menu</h2>
 					<p>Browse our dishes from the menu.</p>
 					<ul id="bf_dishes">
-						<li><a href="#"><img src="/resources/images/thumbs/1.jpg" alt="thumb1"/></a></li>
-						<li><a href="#"><img src="/resources/images/thumbs/2.jpg" alt="thumb2"/></a></li>
-						<li><a href="#"><img src="/resources/images/thumbs/3.jpg" alt="thumb3"/></a></li>
-						<li><a href="#"><img src="/resources/images/thumbs/4.jpg" alt="thumb4"/></a></li>
-						<li><a href="#"><img src="/resources/images/thumbs/5.jpg" alt="thumb5"/></a></li>
-						<li><a href="#"><img src="/resources/images/thumbs/6.jpg" alt="thumb6"/></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/thumbs/1.jpg" alt="thumb1"/></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/thumbs/2.jpg" alt="thumb2"/></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/thumbs/3.jpg" alt="thumb3"/></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/thumbs/4.jpg" alt="thumb4"/></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/thumbs/5.jpg" alt="thumb5"/></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath}/resources/images/thumbs/6.jpg" alt="thumb6"/></a></li>
 					</ul>
 				</div>
 				<div id="bf_gallery" class="bf_gallery">
@@ -114,42 +114,42 @@
 							<div class="bf_desc">
 								<p>Fresh ingredients and authentic flavours</p>
 							</div>
-							<img src="/resources/images/foreground/1.jpg" alt="image1" data-bgimg="/resources/images/background/1.jpg" />
+							<img src="${pageContext.request.contextPath}/resources/images/foreground/1.jpg" alt="image1" data-bgimg="${pageContext.request.contextPath}/resources/images/background/1.jpg" />
 						</div>
 						<div class="bf_gallery_item">
 							<div class="bf_heading"><h2>Pizza Quattro Stagioni</h2></div>
 							<div class="bf_desc">
 								<p>Originality meets tradition</p>
 							</div>
-							<img src="/resources/images/foreground/2.jpg" alt="image1" data-bgimg="/resources/images/background/2.jpg" />
+							<img src="${pageContext.request.contextPath}/resources/images/foreground/2.jpg" alt="image1" data-bgimg="${pageContext.request.contextPath}/resources/images/background/2.jpg" />
 						</div>
 						<div class="bf_gallery_item">
 							<div class="bf_heading"><h2>Rucolini</h2></div>
 							<div class="bf_desc">
 								<p>Dive into the balance of taste</p>
 							</div>
-							<img src="/resources/images/foreground/3.jpg" alt="image1" data-bgimg="/resources/images/background/3.jpg" />
+							<img src="${pageContext.request.contextPath}/resources/images/foreground/3.jpg" alt="image1" data-bgimg="${pageContext.request.contextPath}/resources/images/background/3.jpg" />
 						</div>
 						<div class="bf_gallery_item">
 							<div class="bf_heading"><h2>Salsicce Boscaiola</h2></div>
 							<div class="bf_desc">
 								<p>The right intensity</p>
 							</div>
-							<img src="/resources/images/foreground/4.jpg" alt="image1" data-bgimg="/resources/images/background/4.jpg" />
+							<img src="${pageContext.request.contextPath}/resources/images/foreground/4.jpg" alt="image1" data-bgimg="${pageContext.request.contextPath}/resources/images/background/4.jpg" />
 						</div>
 						<div class="bf_gallery_item">
 							<div class="bf_heading"><h2>Tortelloni Alla Zucca</h2></div>
 							<div class="bf_desc">
 								<p>Incredibly tasty perfection</p>
 							</div>
-							<img src="/resources/images/foreground/5.jpg" alt="image1" data-bgimg="/resources/images/background/5.jpg" />
+							<img src="${pageContext.request.contextPath}/resources/images/foreground/5.jpg" alt="image1" data-bgimg="${pageContext.request.contextPath}/resources/images/background/5.jpg" />
 						</div>
 						<div class="bf_gallery_item">
 							<div class="bf_heading"><h2>Calamaretti Fritti</h2></div>
 							<div class="bf_desc">
 								<p>Combine chunky and soft</p>
 							</div>
-							<img src="/resources/images/foreground/6.jpg" alt="image1" data-bgimg="/resources/images/background/6.jpg" />
+							<img src="${pageContext.request.contextPath}/resources/images/foreground/6.jpg" alt="image1" data-bgimg="${pageContext.request.contextPath}/resources/images/background/6.jpg" />
 						</div>
 					</div>
 				</div>
@@ -160,11 +160,11 @@
 			</div>
 		</div>
 		<div class="bf_footer">
-			<a href="/greetingPage"><strong>Enter for administration</strong></a>
+			<a href="${pageContext.request.contextPath}/greetingPage"><strong>Enter for administration</strong></a>
 		</div>
 		<!-- The JavaScript -->
 		<!-- the mousewheel plugin - optional to provide mousewheel support -->
-		<script type="text/javascript" src="/resources/js/jquery.mousewheel.js"></script>
-		<script type="text/javascript" src="/resources/js/jquery.template.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.template.min.js"></script>
     </body>
 </html>

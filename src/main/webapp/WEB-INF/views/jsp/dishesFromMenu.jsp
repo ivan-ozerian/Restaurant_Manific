@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 <h2 style="padding-top: 20px; text-align: center;"><c:out value="${menuName}"/></h2>
 <br>
 <div style="margin: auto; text-align: center; padding-bottom: 10px">
-    <form action="/menus/addDishForm" method="post">
+    <form action="${pageContext.request.contextPath}/menus/addDishForm" method="post">
         <input type="hidden" name="menuId" value="${menuId}"/>
         <input type="hidden" name="menuName" value="${menuName}"/>
         <input type="submit" value="Add dish"/>
@@ -50,7 +50,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form method="post" action="/menus/deleteDish">
+                        <form method="post" action="${pageContext.request.contextPath}/menus/deleteDish">
                             <input type="hidden" name="dishId" value="${dish.id}"/>
                             <input type="hidden" name="menuId" value="${menuId}"/>
                             <input type="hidden" name="menuName" value="${menuName}"/>

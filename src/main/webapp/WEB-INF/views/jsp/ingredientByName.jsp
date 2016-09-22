@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form method="post" action="/ingredients/updateForm">
+                        <form method="post" action="${pageContext.request.contextPath}/ingredients/updateForm">
                             <input type="hidden" name="ingredientId"
                                    value="<c:out value="${ingredient.id}"/>"/>
                             <input type="hidden" name="currentQuantity"
@@ -46,7 +46,7 @@
                 </td>
                 <td style="border: none;">
                     <div>
-                        <form method="post" action="/ingredients/delete">
+                        <form method="post" action="${pageContext.request.contextPath}/ingredients/delete">
                             <input type="hidden" name="ingredientId"
                                    value="<c:out value="${ingredient.id}"/>"/>
                             <input type="submit" value="Delete"/>

@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -33,7 +33,7 @@
             </td>
             <td style="border: none;">
                 <div>
-                    <form method="post" action="/menus/addDishForm">
+                    <form method="post" action="${pageContext.request.contextPath}/menus/addDishForm">
                         <input type="hidden" name="menuId" value="${menu.id}"/>
                         <input type="hidden" name="menuName" value="${menu.menuName}"/>
                         <input type="submit" value="Add dish"/>
@@ -42,7 +42,7 @@
             </td>
             <td style="border: none;">
                 <div>
-                    <form action="/menus/showMenuDishes">
+                    <form action="${pageContext.request.contextPath}/menus/showMenuDishes">
                         <input type="hidden" name="menuId" value="${menu.id}"/>
                         <input type="hidden" name="menuName" value="${menu.menuName}"/>
                         <input type="submit" value="See dishes"/>
@@ -51,7 +51,7 @@
             </td>
             <td style="border: none;">
                 <div>
-                    <form method="post" action="/menus/deleteMenu">
+                    <form method="post" action="${pageContext.request.contextPath}/menus/deleteMenu">
                         <input type="hidden" name="menuId" value="${menu.id}"/>
                         <input type="submit" value="Delete"/>
                     </form>

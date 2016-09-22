@@ -6,14 +6,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>New Employee</title>
 </head>
 <body>
 <%@include file="menusActions.jsp" %>
 
 <div id="mystyle" class="myform">
-    <form:form action="/menus/addSubmit" method="post" commandName="menu">
+    <form:form action="${pageContext.request.contextPath}/menus/addSubmit" method="post" commandName="menu">
         <h1>Menu</h1>
         <p>To add new Menu enter following information</p>
         <form:label path="menuName">Name<span class="small">Enter the menu name</span></form:label>

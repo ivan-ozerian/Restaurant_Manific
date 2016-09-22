@@ -3,13 +3,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>New Employee</title>
 </head>
 <body>
 <%@include file="dishesActions.jsp" %>
     <div id="mystyle" class="myform">
-        <form action="/dishes/findByName" method="post">
+        <form action="${pageContext.request.contextPath}/dishes/findByName" method="post">
             <h1>Dish</h1>
             <p>To search a Dish enter it's name</p>
             <label>Name<span class="small">Enter name</span></label>

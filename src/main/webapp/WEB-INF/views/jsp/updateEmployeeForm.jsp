@@ -7,14 +7,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>New Employee</title>
 </head>
 <body>
 <%@include file="ingredientsActions.jsp" %>
 
 <div id="mystyle" class="myform">
-    <form name="add" action="/employees/updateSubmit" method="post">
+    <form name="add" action="${pageContext.request.contextPath}/employees/updateSubmit" method="post">
         <h1>${employee.name} ${employee.surname}</h1>
         <p>Update employee info</p>
         <label>Phone number<span class="small">Enter phone number</span></label>

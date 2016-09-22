@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -15,16 +15,16 @@
         <%=new Date()%> </br>  </br>
         <p>
         <div style="margin-left: 220px">
-            <form action="/orders/addForm">
+            <form action="${pageContext.request.contextPath}/orders/addForm">
                 <input type="submit" value="Add new order"/>
             </form>
-            <form action="/orders/showOpen">
+            <form action="${pageContext.request.contextPath}/orders/showOpen">
                 <input type="submit" value="View open orders"/>
             </form>
-            <form action="/orders/showClose">
+            <form action="${pageContext.request.contextPath}/orders/showClose">
                 <input type="submit" value="View closed orders"/>
             </form>
-            <form action="/greetingPage">
+            <form action="${pageContext.request.contextPath}/greetingPage">
                 <input type="submit" value="Back to start page"/>
             </form>
         </div>

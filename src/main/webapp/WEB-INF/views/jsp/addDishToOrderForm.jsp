@@ -7,13 +7,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>New Employee</title>
 </head>
 <body>
 <%@include file="ordersActions.jsp" %>
 <div id="mystyle" class="myform">
-    <form name="add" action="/orders/addDishSubmit" method="post">
+    <form name="add" action="${pageContext.request.contextPath}/orders/addDishSubmit" method="post">
         <h1>Order #<c:out value="${orderId}"/></h1>
         <p>Choose a dish from list for addition to order</p>
         <label>Name<span class="small">Choose the dish</span></label>

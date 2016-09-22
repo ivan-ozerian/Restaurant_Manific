@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css"/>
     <title>JSP Page</title>
 </head>
 <body>
@@ -14,19 +14,19 @@
         <b>The application is made by Ivan Ozerian</b><br/>
                 <%=new Date()%> </br>  </br>
         <p><div style="margin-left: 120px">
-            <form action="/ingredients/addForm">
+            <form action="${pageContext.request.contextPath}/ingredients/addForm">
                 <input type="submit" value="Add new ingredient"/>
             </form>
-            <form name="show" action="/ingredients/showAll">
+            <form name="show" action="${pageContext.request.contextPath}/ingredients/showAll">
                 <input type="submit" value="View all ingredients"/>
             </form>
-            <form action="/ingredients/searchForm">
+            <form action="${pageContext.request.contextPath}/ingredients/searchForm">
                 <input type="submit" value="Search Ingredient by name"/>
             </form>
-        <form action="/ingredients/showExpiring">
+        <form action="${pageContext.request.contextPath}/ingredients/showExpiring">
             <input type="submit" value="Show expiring ingredients"/>
         </form>
-            <form action="/greetingPage">
+            <form action="${pageContext.request.contextPath}/greetingPage">
                 <input type="submit" value="Back to start page"/>
             </form>
         </div>
