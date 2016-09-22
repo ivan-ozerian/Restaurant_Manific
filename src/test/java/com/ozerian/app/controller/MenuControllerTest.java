@@ -89,8 +89,8 @@ public class MenuControllerTest {
     public void testFindByName() throws Exception {
         mockMvc.perform(post("/menus/findByName").param("menuName", "Menu_1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("menuByName"))
-                .andExpect(forwardedUrl("/WEB-INF/views/jsp/menuByName.jsp"));
+                .andExpect(view().name("menuNotFoundException"))
+                .andExpect(forwardedUrl("/WEB-INF/views/jsp/menuNotFoundException.jsp"));
     }
 
     @Test

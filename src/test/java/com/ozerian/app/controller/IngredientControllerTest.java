@@ -83,8 +83,8 @@ public class IngredientControllerTest {
     public void testFindByName() throws Exception {
         mockMvc.perform(post("/ingredients/findByName").param("ingredientName", "Ingredients_1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("ingredientByName"))
-                .andExpect(forwardedUrl("ingredientByName"));
+                .andExpect(view().name("ingredientNotFoundException"))
+                .andExpect(forwardedUrl("ingredientNotFoundException"));
     }
 
     @Test

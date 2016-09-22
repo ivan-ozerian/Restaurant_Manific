@@ -83,9 +83,8 @@ public class DishControllerTest {
     public void testFindByName() throws Exception {
         mockMvc.perform(post("/dishes/findByName").param("dishName", "Dish_1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("dishByName"))
-                .andExpect(forwardedUrl("dishByName"))
-                .andExpect(model().attributeExists("foundDishes"));
+                .andExpect(view().name("dishNotFoundException"))
+                .andExpect(forwardedUrl("dishNotFoundException"));
     }
 
     @Test
