@@ -19,7 +19,7 @@
                text-align: center;
                padding: 20px;
                width: 80%">
-        Sorry! This dish cannot be deleted. It has reference on other table.
+        Sorry! This dish cannot be deleted. It is contained in menu.
     </h2>
 </div>
 <div id="mystyle" style="border: none;
