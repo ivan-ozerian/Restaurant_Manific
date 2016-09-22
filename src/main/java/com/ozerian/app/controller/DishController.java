@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -54,8 +55,12 @@ public class DishController {
     }
 
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)
-    public String findByName(@RequestParam("dishName") String dishName, Model model) {
-        model.addAttribute("foundDishes", dishService.searchDishByName(dishName));
+    public String findByName(@RequestParam("dishName") String dishName, Model model) throws NotFoundException {
+        List<Dish> dishes = dishService.searchDishByName(dishName);
+        if (dishes.size() == 0) {
+            throw new NotFoundException("Dish was not found");
+        }
+        model.addAttribute("foundDishes", dishes);
         return "dishByName";
     }
 

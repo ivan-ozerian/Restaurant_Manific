@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -75,8 +76,12 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)
-    public String findByName(@RequestParam("menuName") String menuName, Model model) {
-        model.addAttribute("menu", menuService.searchMenuByName(menuName));
+    public String findByName(@RequestParam("menuName") String menuName, Model model) throws NotFoundException {
+        Menu menu = menuService.searchMenuByName(menuName);
+        if (menu == null) {
+            throw new NotFoundException("Menu is not found");
+        }
+        model.addAttribute("menu", menu);
         return "menuByName";
     }
 
