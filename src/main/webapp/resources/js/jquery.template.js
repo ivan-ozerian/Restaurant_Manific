@@ -57,7 +57,7 @@ $(function() {
 					
 					resizeMap();
 					
-					var coordInfoWindow = new google.maps.InfoWindow({maxWidth : 10}),   
+					var coordInfoWindow = new google.maps.InfoWindow({maxWidth : 200}),
 						latlngStr 		= address + "<br />LatLng: " + lat + " , " + lng + "<br />";
 					
 					coordInfoWindow.setContent(latlngStr);    

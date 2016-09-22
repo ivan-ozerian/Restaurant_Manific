@@ -27,9 +27,9 @@
         <ul>
             <li><a href="#" data-content="home"><span class="bf_hover"></span><span>Welcome</span></a></li>
             <li><a href="#" data-content="about"><span class="bf_hover"></span><span>About us</span></a></li>
-            <li><a href="#" data-content="menu"><span class="bf_hover"></span><span>Our Menu</span></a></li>
             <li><a href="#" data-content="scheme"><span class="bf_hover"></span><span>Restaurant</span></a></li>
             <li><a href="#" data-content="staff"><span class="bf_hover"></span><span>Our staff</span></a></li>
+            <li><a href="#" data-content="menu"><span class="bf_hover"></span><span>Our Menu</span></a></li>
             <li><a href="#" data-content="visit"><span class="bf_hover"></span><span>Visit us</span></a></li>
         </ul>
     </div>
@@ -136,57 +136,56 @@
                         <h4>Price: 97.50 UAH</h4>
                         <h4 style="bottom: 0px">Ingredients: egg, bacon, cheese, salad, cream</h4>
                     </div>
+                    <img src="${pageContext.request.contextPath}/resources/images/foreground/2.jpg" alt="image1"
+                         data-bgimg="${pageContext.request.contextPath}/resources/images/background/2.jpg"/>
                 </div>
-                <img src="${pageContext.request.contextPath}/resources/images/foreground/2.jpg" alt="image1"
-                     data-bgimg="${pageContext.request.contextPath}/resources/images/background/2.jpg"/>
-            </div>
-            <div class="bf_gallery_item">
-                <div class="bf_heading"><h2>Rucolini</h2></div>
-                <div class="bf_desc">
-                    <p>Dive into the balance of taste</p>
-                    <h4>Price: 78.00 UAH</h4>
-                    <h4 style="bottom: 0px">Ingredients: olives, forcemeat, lemon, rukkola.</h4>
+                <div class="bf_gallery_item">
+                    <div class="bf_heading"><h2>Rucolini</h2></div>
+                    <div class="bf_desc">
+                        <p>Dive into the balance of taste</p>
+                        <h4>Price: 78.00 UAH</h4>
+                        <h4 style="bottom: 0px">Ingredients: olives, forcemeat, lemon, rukkola.</h4>
+                    </div>
+                    <img src="${pageContext.request.contextPath}/resources/images/foreground/3.jpg" alt="image1"
+                         data-bgimg="${pageContext.request.contextPath}/resources/images/background/3.jpg"/>
                 </div>
-                <img src="${pageContext.request.contextPath}/resources/images/foreground/3.jpg" alt="image1"
-                     data-bgimg="${pageContext.request.contextPath}/resources/images/background/3.jpg"/>
-            </div>
-            <div class="bf_gallery_item">
-                <div class="bf_heading"><h2>Salsicce Boscaiola</h2></div>
-                <div class="bf_desc">
-                    <p>The right intensity</p>
-                    <h4>Price: 90.00 UAH</h4>
-                    <h4 style="bottom: 0px">Ingredients: salami, onion, cheese, tomato.</h4>
+                <div class="bf_gallery_item">
+                    <div class="bf_heading"><h2>Salsicce Boscaiola</h2></div>
+                    <div class="bf_desc">
+                        <p>The right intensity</p>
+                        <h4>Price: 90.00 UAH</h4>
+                        <h4 style="bottom: 0px">Ingredients: salami, onion, cheese, tomato.</h4>
+                    </div>
+                    <img src="${pageContext.request.contextPath}/resources/images/foreground/4.jpg" alt="image1"
+                         data-bgimg="${pageContext.request.contextPath}/resources/images/background/4.jpg"/>
                 </div>
-                <img src="${pageContext.request.contextPath}/resources/images/foreground/4.jpg" alt="image1"
-                     data-bgimg="${pageContext.request.contextPath}/resources/images/background/4.jpg"/>
-            </div>
-            <div class="bf_gallery_item">
-                <div class="bf_heading"><h2>Tortelloni Alla Zucca</h2></div>
-                <div class="bf_desc">
-                    <p>Incredibly tasty perfection</p>
-                    <h4>Price: 85.00 UAH</h4>
-                    <h4 style="bottom: 0px">Ingredients: forcemeat, cream, onion.</h4>
+                <div class="bf_gallery_item">
+                    <div class="bf_heading"><h2>Tortelloni Alla Zucca</h2></div>
+                    <div class="bf_desc">
+                        <p>Incredibly tasty perfection</p>
+                        <h4>Price: 85.00 UAH</h4>
+                        <h4 style="bottom: 0px">Ingredients: forcemeat, cream, onion.</h4>
+                    </div>
+                    <img src="${pageContext.request.contextPath}/resources/images/foreground/5.jpg" alt="image1"
+                         data-bgimg="${pageContext.request.contextPath}/resources/images/background/5.jpg"/>
                 </div>
-                <img src="${pageContext.request.contextPath}/resources/images/foreground/5.jpg" alt="image1"
-                     data-bgimg="${pageContext.request.contextPath}/resources/images/background/5.jpg"/>
-            </div>
-            <div class="bf_gallery_item">
-                <div class="bf_heading"><h2>Calamaretti Fritti</h2></div>
-                <div class="bf_desc">
-                    <p>Combine chunky and soft</p>
-                    <h4>Price: 45.00 UAH</h4>
-                    <h4 style="bottom: 0px">Ingredients: squid, basolic, batter.</h4>
+                <div class="bf_gallery_item">
+                    <div class="bf_heading"><h2>Calamaretti Fritti</h2></div>
+                    <div class="bf_desc">
+                        <p>Combine chunky and soft</p>
+                        <h4>Price: 45.00 UAH</h4>
+                        <h4 style="bottom: 0px">Ingredients: squid, basil, batter.</h4>
+                    </div>
+                    <img src="${pageContext.request.contextPath}/resources/images/foreground/6.jpg" alt="image1"
+                         data-bgimg="${pageContext.request.contextPath}/resources/images/background/6.jpg"/>
                 </div>
-                <img src="${pageContext.request.contextPath}/resources/images/foreground/6.jpg" alt="image1"
-                     data-bgimg="${pageContext.request.contextPath}/resources/images/background/6.jpg"/>
             </div>
         </div>
     </div>
-</div>
 
-<div class="bf_page" id="visit">
+    <div class="bf_page" id="visit">
 
-</div>
+    </div>
 </div>
 <div class="bf_footer">
     <a href="${pageContext.request.contextPath}/greetingPage"><strong>Enter for administration</strong></a>
