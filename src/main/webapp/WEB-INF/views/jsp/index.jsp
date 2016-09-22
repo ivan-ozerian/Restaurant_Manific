@@ -10,7 +10,7 @@
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis+Light' rel='stylesheet' type='text/css'>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+		<script src="http://maps.google.com/maps/api/js?key=AIzaSyBE4kTKvWOOvYoXN3plQJu-Nu9Ht13Yu1I&callback=initMap" type="text/javascript"></script>
     </head>
     <body>
 		<div id="map"></div>
