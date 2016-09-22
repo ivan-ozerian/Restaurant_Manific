@@ -291,9 +291,16 @@ a.bf_close{
 }
 .bf_desc p{
 	position:absolute;
+	bottom:40px;
+	right:20px;
+	font-size:20px;
+	line-height:66px;
+}
+.bf_desc h4{
+	position:absolute;
 	bottom:20px;
 	right:20px;
-	font-size:30px;
+	font-size:20px;
 	line-height:66px;
 }
 /* Footer Style */
