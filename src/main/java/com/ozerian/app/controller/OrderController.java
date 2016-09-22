@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -130,16 +131,44 @@ public class OrderController {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public String violationException () {
+    public String violationException() {
         LOGGER.error("Trying to delete of order with reference in other table");
         return "deleteOrderException";
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(Exception.class)
-    public String badRequestException () {
+    public String badRequestException() {
         LOGGER.error("Error during new order creation (invalid or empty form's parameters)");
         return "creationOrderException";
+    }
+
+    //REST for all orders obtaining.
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Order> allOrders() {
+        List<Order> result = new ArrayList<>();
+        result.addAll(orderService.getOrderByStatus(true));
+        result.addAll(orderService.getOrderByStatus(false));
+        return result;
+    }
+
+    @RequestMapping(value = "/open", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Order> openOrders() {
+        return orderService.getOrderByStatus(true);
+    }
+
+    @RequestMapping(value = "/close", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Order> closeOrders() {
+        return orderService.getOrderByStatus(false);
+    }
+
+    @RequestMapping(value = "/{orderId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Order orderById(@PathVariable("orderId") String orderId) {
+        return orderService.getOrderById(Integer.valueOf(orderId));
     }
 
     @Autowired

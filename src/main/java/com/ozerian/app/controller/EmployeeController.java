@@ -115,6 +115,32 @@ public class EmployeeController {
         return "employeeNotFoundException";
     }
 
+    //REST for all employees obtaining.
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Employee> allEmployees() {
+        return employeeService.getAllEmployees();
+    }
+
+    @RequestMapping(value = "/{employeeId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Employee employeeById(@PathVariable("employeeId") String employeeId) {
+        return employeeService.getEmployeeById(Integer.valueOf(employeeId));
+    }
+
+    @RequestMapping(value = "/{employeeName}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Employee> employeeByName(@PathVariable("employeeName") String employeeName) {
+        return employeeService.searchEmployeeByName(employeeName);
+    }
+
+    @RequestMapping(value = "/{employeeName}/{employeeSurname}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Employee> employeeByNameAndSurname(@PathVariable("employeeName") String employeeName,
+                                                   @PathVariable("employeeSurname") String employeeSurname) {
+        return employeeService.searchEmployeeByNameAndSurname(employeeName, employeeSurname);
+    }
+
     @Autowired
     public void setEmployeeService(EmployeeService employeeService) {
         this.employeeService = employeeService;

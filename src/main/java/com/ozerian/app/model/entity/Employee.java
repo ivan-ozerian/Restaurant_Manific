@@ -1,5 +1,6 @@
 package com.ozerian.app.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -104,6 +105,7 @@ public class Employee extends DataBaseEntity {
      *
      * @return Date employee's date of birth.
      */
+    @JsonIgnore
     public Date getBirthDate() {
         return birthDate;
     }
@@ -122,6 +124,7 @@ public class Employee extends DataBaseEntity {
      *
      * @return String employee's phone number.
      */
+    @JsonIgnore
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -140,6 +143,7 @@ public class Employee extends DataBaseEntity {
      *
      * @return int employee's salary.
      */
+    @JsonIgnore
     public int getSalary() {
         return salary;
     }
@@ -158,6 +162,7 @@ public class Employee extends DataBaseEntity {
      *
      * @return Position employee's position.
      */
+    @JsonIgnore
     public Position getPosition() {
         return position;
     }

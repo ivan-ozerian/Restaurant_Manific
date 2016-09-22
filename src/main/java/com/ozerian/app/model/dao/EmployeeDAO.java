@@ -119,6 +119,23 @@ public class EmployeeDAO implements EntityDAO<Employee> {
     }
 
     /**
+     * Find employee by name and surname.
+     *
+     * @param employeeName    String employee's name.
+     * @param employeeSurname String employee's surname
+     * @return List employees with such name and surname.
+     */
+    @Transactional
+    public List<Employee> searchEmployeeByNameAndSurname(String employeeName, String employeeSurname) {
+        Session session = sessionFactory.getCurrentSession();
+        String hql = "select e from Employee e where e.name =:name and e.surname =:surname";
+        Query query = session.createQuery(hql);
+        query.setParameter("name", employeeName);
+        query.setParameter("surname", employeeSurname);
+        return query.list();
+    }
+
+    /**
      * Get SessionFactory object.
      *
      * @return SessionFactory sessionFactory object.

@@ -107,6 +107,18 @@ public class EmployeeService {
     }
 
     /**
+     * Find employee by name and surname.
+     *
+     * @param employeeName    String employee's name.
+     * @param employeeSurname String employee's surname
+     * @return List employees with such name and surname.
+     */
+    @Transactional
+    public List<Employee> searchEmployeeByNameAndSurname(String employeeName, String employeeSurname) {
+        return employeeDAO.searchEmployeeByNameAndSurname(employeeName, employeeSurname);
+    }
+
+    /**
      * set EmployeeDao object.
      *
      * @param employeeDAO EmployeeDAO object.

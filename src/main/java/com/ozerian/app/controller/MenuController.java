@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "/menus")
 public class MenuController {
@@ -32,6 +34,26 @@ public class MenuController {
         model.addAttribute("menus", menuService.getAllMenus());
         return "menusList";
     }
+
+    //REST for all menus obtaining.
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Menu> allMenus() {
+        return menuService.getAllMenus();
+    }
+
+    @RequestMapping(value = "/{menuId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Menu menuById(@PathVariable("menuId") String menuId) {
+        return menuService.getMenuById(Integer.valueOf(menuId));
+    }
+
+    @RequestMapping(value = "/{menuName}", method = RequestMethod.GET)
+    @ResponseBody
+    public Menu menuByName(@PathVariable("menuName") String menuName) {
+        return menuService.searchMenuByName(menuName);
+    }
+
 
     @RequestMapping(value = "/addMenuForm", method = RequestMethod.GET)
     public ModelAndView addMenuForm() {
